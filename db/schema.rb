@@ -11,13 +11,45 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151102005657) do
+ActiveRecord::Schema.define(version: 20151102062732) do
 
   create_table "champions", force: :cascade do |t|
-    t.string   "champion_id"
+    t.string   "name"
     t.boolean  "active"
     t.boolean  "free"
     t.boolean  "ranked"
+    t.integer  "armor"
+    t.integer  "armorperlevel"
+    t.integer  "attackdamage"
+    t.integer  "attackdamageperlevel"
+    t.integer  "attackrange"
+    t.integer  "attackspeedoffset"
+    t.integer  "attackspeedperlevel"
+    t.integer  "crit"
+    t.integer  "critperlevel"
+    t.integer  "hp"
+    t.integer  "hpperlevel"
+    t.integer  "hpregen"
+    t.integer  "hpregenperlevel"
+    t.integer  "movespeed"
+    t.integer  "mp"
+    t.integer  "mpperlevel"
+    t.integer  "mpregen"
+    t.integer  "mpregenperlevel"
+    t.integer  "spellblock"
+    t.integer  "spellblockperlevel"
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+  end
+
+  create_table "spells", force: :cascade do |t|
+    t.integer  "champion_id"
+    t.string   "name"
+    t.string   "description"
+    t.string   "cost"
+    t.string   "cooldown"
+    t.string   "range"
+    t.string   "key"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end

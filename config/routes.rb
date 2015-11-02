@@ -1,8 +1,7 @@
 Rails.application.routes.draw do
+  resources :spells
   resources :champions
   # root 'welcome#index'
-
-    resources :champions
 
   # Example resource route with options:
   #   resources :products do

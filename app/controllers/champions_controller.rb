@@ -5,11 +5,18 @@ class ChampionsController < ApplicationController
   # GET /champions.json
   def index
     @champions = Champion.all
+    @spells = Spell.all
   end
 
   # GET /champions/1
   # GET /champions/1.json
   def show
+    @spells = Spell.where(champion_id: @champion.id)
+    @q = @spells.first
+    @w = @spells[1]
+    @e = @spells[2]
+    @r = @spells.last
+
   end
 
   # GET /champions/new

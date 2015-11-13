@@ -2,8 +2,8 @@
 
 <h1>Champions</h1>
 
-    <% @champions.each do |champion| %>
-      <%= champion.name %>
-    <% end %>
+<% @champions.each do |champion| %>
+  <%= link_to champion.name, champion %> |
+<% end %>
 
 

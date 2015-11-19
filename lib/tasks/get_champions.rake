@@ -1,5 +1,7 @@
 namespace :champs do
 
+  @api_key = ENV.fetch('API_KEY')
+
   desc "gets all the champions"
   task :get_champions => :environment do
     get_champion_list
@@ -8,8 +10,15 @@ namespace :champs do
     get_spells
   end
 
+  desc "gets summoner info"
+  task :get_summoner => :environment do
+    get_summoner_info("a lvl 69 boner")
+  end
+
   def get_champion_list
-    champions_list = JSON.parse(HTTP.accept(:json).get("https://na.api.pvp.net/api/lol/na/v1.2/champion?api_key=44e340b9-08d6-4c84-ad47-bd41f502c13f").body)
+
+
+    champions_list = JSON.parse(HTTP.accept(:json).get("https://na.api.pvp.net/api/lol/na/v1.2/champion?api_key=#{@api_key}").body)
     champions = champions_list['champions']
 
     champions.each do |champion|
@@ -30,7 +39,7 @@ namespace :champs do
   end
 
   def get_champion_names
-    @champions_list = JSON.parse(HTTP.accept(:json).get('https://global.api.pvp.net/api/lol/static-data/na/v1.2/champion?champData=all&api_key=44e340b9-08d6-4c84-ad47-bd41f502c13f').body)
+    @champions_list = JSON.parse(HTTP.accept(:json).get("https://global.api.pvp.net/api/lol/static-data/na/v1.2/champion?champData=all&api_key=#{@api_key}").body)
 
     champion_names = @champions_list['keys']
 
@@ -64,5 +73,14 @@ namespace :champs do
         new_spell.save
       end
     end
+  end
+
+  def get_summoner_info(summoner_name)
+    @summoner_info = JSON.parse(HTTP.accept(:json).get("https://na.api.pvp.net/api/lol/na/v1.4/summoner/by-name/#{summoner_name}?api_key=#{@api_key}").body)
+    info = @summoner_info.values[0]
+    id = info["id"]
+    name = info["name"]
+    icon = info["profileIconId"]
+    level = info["summonerLevel"]
   end
 end

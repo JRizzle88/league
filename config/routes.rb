@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :summoners
   resources :spells
   resources :champions
   # root 'welcome#index'

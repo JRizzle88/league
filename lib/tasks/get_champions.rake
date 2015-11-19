@@ -10,11 +10,6 @@ namespace :champs do
     get_spells
   end
 
-  desc "gets summoner info"
-  task :get_summoner => :environment do
-    get_summoner_info("a lvl 69 boner")
-  end
-
   def get_champion_list
 
 
@@ -75,12 +70,7 @@ namespace :champs do
     end
   end
 
-  def get_summoner_info(summoner_name)
-    @summoner_info = JSON.parse(HTTP.accept(:json).get("https://na.api.pvp.net/api/lol/na/v1.4/summoner/by-name/#{summoner_name}?api_key=#{@api_key}").body)
-    info = @summoner_info.values[0]
-    id = info["id"]
-    name = info["name"]
-    icon = info["profileIconId"]
-    level = info["summonerLevel"]
+  def masteries
+    @mastery_info = JSON.parse(HTTP.accept(:json).get("https://na.api.pvp.net/api/lol/na/v1.4/summoner/#{summoner.id}/masteries?api_key=#{@api_key}").body)
   end
 end

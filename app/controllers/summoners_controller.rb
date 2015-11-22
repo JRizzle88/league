@@ -5,6 +5,7 @@ class SummonersController < ApplicationController
     @new_summoner= Summoner.new
     summoner_name = cookies[:summoner]
     @summoner = Summoner.find_by(:name => summoner_name)
+    @champions = Champion.all.order(:name)
   end
 
   def create

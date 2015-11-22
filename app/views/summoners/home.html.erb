@@ -8,3 +8,11 @@ Summoner Level: <%= @summoner.level %><br>
 <% end %>
 
 <img src="http://ddragon.leagueoflegends.com/cdn/5.12.1/img/profileicon/<%= @summoner.icon %>.png" style="width:200px;height:200px;">
+
+<br><br>
+
+<% @champions.each do |champion| %>
+  <a href="champions/<%= champion.id %>">
+    <img src="http://ddragon.leagueoflegends.com/cdn/5.22.3/img/champion/<%= champion.name %>.png">
+  </a>
+<% end %>

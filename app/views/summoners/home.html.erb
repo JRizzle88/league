@@ -1,10 +1,10 @@
-<%= $api %><br>
-
-<%= @summoner.name %><br>
+Summoner Name: <%= @summoner.name %><br>
+Summoner Level: <%= @summoner.level %><br>
 
 <%= form_for @new_summoner do |f| %>
   <%= f.label :name %>:
   <%= f.text_field :name %><br />
-
   <%= f.submit %>
 <% end %>
+
+<img src="http://ddragon.leagueoflegends.com/cdn/5.12.1/img/profileicon/<%= @summoner.icon %>.png" style="width:200px;height:200px;">

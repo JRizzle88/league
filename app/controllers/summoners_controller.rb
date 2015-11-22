@@ -9,7 +9,6 @@ class SummonersController < ApplicationController
 
   def create
     summoner_name = params[:summoner][:name]
-
     @summoner_info = JSON.parse(HTTP.accept(:json).get("https://na.api.pvp.net/api/lol/na/v1.4/summoner/by-name/#{summoner_name}?api_key=#{$api}").body)
     @summoner = Summoner.new
     info = @summoner_info.values[0]

@@ -11,8 +11,8 @@ Summoner Level: <%= @summoner.level %><br>
 
 <br><br>
 
-<% @champions.each do |champion| %>
-  <a href="champions/<%= champion.id %>">
-    <img src="http://ddragon.leagueoflegends.com/cdn/5.22.3/img/champion/<%= champion.name %>.png">
-  </a>
-<% end %>
+<div class="champions">
+  <% @champions.each do |champion| %>
+    <img id="<%= champion.id %>" src="http://ddragon.leagueoflegends.com/cdn/5.22.3/img/champion/<%= champion.name %>.png">
+  <% end %>
+</div>

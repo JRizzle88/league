@@ -1,30 +1,11 @@
 class SummonersController < ApplicationController
   before_action :set_summoner, only: [:show, :edit, :update, :destroy]
 
-  # GET /summoners
-  # GET /summoners.json
-  def index
+  def home
     @summoners = Summoner.all
   end
 
-  # GET /summoners/1
-  # GET /summoners/1.json
-  def show
-  end
-
-  # GET /summoners/new
-  def new
-    @summoner = Summoner.new
-  end
-
-  # GET /summoners/1/edit
-  def edit
-  end
-
-  # POST /summoners
-  # POST /summoners.json
   def create
-    @api_key = ENV.fetch('API_KEY')
     summoner_name = params[:summoner][:name]
     @summoner_info = JSON.parse(HTTP.accept(:json).get("https://na.api.pvp.net/api/lol/na/v1.4/summoner/by-name/#{summoner_name}?api_key=#{@api_key}").body)
 
@@ -59,8 +40,6 @@ class SummonersController < ApplicationController
     end
   end
 
-  # PATCH/PUT /summoners/1
-  # PATCH/PUT /summoners/1.json
   def update
     respond_to do |format|
       if @summoner.update(summoner_params)
@@ -73,23 +52,11 @@ class SummonersController < ApplicationController
     end
   end
 
-  # DELETE /summoners/1
-  # DELETE /summoners/1.json
-  def destroy
-    @summoner.destroy
-    respond_to do |format|
-      format.html { redirect_to summoners_url, notice: 'Summoner was successfully destroyed.' }
-      format.json { head :no_content }
-    end
-  end
-
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_summoner
       @summoner = Summoner.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def summoner_params
       params[:summoner]
     end

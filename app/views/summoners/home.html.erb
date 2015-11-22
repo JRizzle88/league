@@ -16,3 +16,10 @@ Summoner Level: <%= @summoner.level %><br>
     <img id="<%= champion.id %>" src="http://ddragon.leagueoflegends.com/cdn/5.22.3/img/champion/<%= champion.name %>.png">
   <% end %>
 </div>
+
+
+<form action="champions/compare" method="post">
+  <input id="champ1" name="champ1" hidden>
+  <input id="champ2" name="champ2" hidden>
+  <input type="submit" value="Submit">
+</form>

@@ -22,13 +22,12 @@ $( document ).ready(function() {
 
     $('.champions').children().click(function() {
         if (champ1 == false) {
-            document.cookie="champion_1=" + this.id;
+            $('#champ1').val(this.id);
             champ1 = true;
             $(this).hide();
         } else if (champ2 == false) {
-            document.cookie="champion_2=" + this.id;
+            $('#champ2').val(this.id);
             champ2 = true;
-            //$('.champions').hide();
             $(this).hide();
         }
     });

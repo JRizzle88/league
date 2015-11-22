@@ -36,6 +36,11 @@ class ChampionsController < ApplicationController
     end
   end
 
+  def compare
+    @champion_1 = Champion.find(params[:champ1])
+    @champion_2 = Champion.find(params[:champ2])
+  end
+
   private
     def set_champion
       @champion = Champion.find(params[:id])

@@ -2,13 +2,16 @@ class SummonersController < ApplicationController
   before_action :set_summoner, only: [:show, :edit, :update, :destroy]
 
   def home
-    @summoners = Summoner.all
+    @new_summoner= Summoner.new
+    summoner_name = cookies[:summoner]
+    @summoner = Summoner.find_by(:name => summoner_name)
   end
 
   def create
     summoner_name = params[:summoner][:name]
-    @summoner_info = JSON.parse(HTTP.accept(:json).get("https://na.api.pvp.net/api/lol/na/v1.4/summoner/by-name/#{summoner_name}?api_key=#{@api_key}").body)
 
+    @summoner_info = JSON.parse(HTTP.accept(:json).get("https://na.api.pvp.net/api/lol/na/v1.4/summoner/by-name/#{summoner_name}?api_key=#{$api}").body)
+    @summoner = Summoner.new
     info = @summoner_info.values[0]
     id = info["id"]
     name = info["name"]
@@ -29,13 +32,11 @@ class SummonersController < ApplicationController
       @summoner.save
     end
 
+    cookies[:summoner] = name
+
     respond_to do |format|
       if @summoner.save
-        format.html { redirect_to @summoner, notice: 'Spell was successfully created.' }
-        format.json { render :show, status: :created, location: @spell }
-      else
-        format.html { render :new }
-        format.json { render json: @summoner.errors, status: :unprocessable_entity }
+        format.html { redirect_to action: "home", notice: 'created' }
       end
     end
   end

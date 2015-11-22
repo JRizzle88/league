@@ -22,5 +22,6 @@ module League
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
     $api = ENV.fetch('API_KEY')
+    $url = "https://na.api.pvp.net/api/lol/"
   end
 end

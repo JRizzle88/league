@@ -1,1 +1,10 @@
-<%= $api %>
+<%= $api %><br>
+
+<%= @summoner.name %><br>
+
+<%= form_for @new_summoner do |f| %>
+  <%= f.label :name %>:
+  <%= f.text_field :name %><br />
+
+  <%= f.submit %>
+<% end %>

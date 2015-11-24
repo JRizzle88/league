@@ -1,52 +1,59 @@
-<%= @champion_1.name %> vs <%= @champion_2.name %>
+<div class="row">
+  <div class="champion_1 large-5 columns">
+    <h1><%= @champion_1.name %></h1>
+  </div>
 
-<br><br>
+  <div class="large-2 columns">
+    <br>
 
+    <h3>vs.</h3>
+  </div>
 
-<div class="champion_1">
-  <p>Armor: <%= @champion_1.armor %></p>
-  <p>Armor Pen/lvl: <%= @champion_1.armorperlevel %></p>
-  <p>AD: <%= @champion_1.attackdamage %></p>
-  <p>AD/lvl: <%= @champion_1.attackdamageperlevel %></p>
-  <p>Attack Range: <%= @champion_1.attackrange %></p>
-  <p>Attackspeedoffset: <%= @champion_1.attackspeedoffset %></p>
-  <p>Attackspeedperlevel: <%= @champion_1.attackspeedperlevel %></p>
-  <p>Crit: <%= @champion_1.crit %></p>
-  <p>Crit/lvl: <%= @champion_1.critperlevel %></p>
-  <p>HP: <%= @champion_1.hp %></p>
-  <p>HP/lvl: <%= @champion_1.hpperlevel %></p>
-  <p>HP Regen: <%= @champion_1.hpregen %></p>
-  <p>HP Regen/lvl: <%= @champion_1.hpregenperlevel %></p>
-  <p>Movespeed: <%= @champion_1.movespeed %></p>
-  <p>MP: <%= @champion_1.mp %></p>
-  <p>MP/lvl: <%= @champion_1.mpperlevel %></p>
-  <p>MP Regen: <%= @champion_1.mpregen %></p>
-  <p>MP Regen/lvl: <%= @champion_1.mpregenperlevel %></p>
-  <p>Spellblock: <%= @champion_1.spellblock %></p>
-  <p>Spellblock/lvl: <%= @champion_1.spellblockperlevel %></p>
+  <div class="champion_2 large-5 columns">
+    <h1><%= @champion_2.name %></h1>
+  </div>
+  <hr>
+</div>
+<div class="row">
+  <div class="champion_1 large-5 columns">
+    Armor: <span id="armor-1"><%= @champion_1.armor %></span><br>
+    Armor Pen/lvl: <span id="armor-pen-1"><%= @champion_1.armorperlevel %></span><br>
+    AD: <span id="ad-1"><%= @champion_1.attackdamage %></span><br>
+    AD/lvl: <span id="adlvl-1"><%= @champion_1.attackdamageperlevel %></span><br>
+    Attack Range: <span id="ar-1"><%= @champion_1.attackrange %></span><br>
+    Attackspeedperlevel: <span id="aslvl-1"><%= @champion_1.attackspeedperlevel %></span><br>
+    HP: <span id="hp-1"><%= @champion_1.hp %></span><br>
+    HP/lvl: <span id="hplvl-1"><%= @champion_1.hpperlevel %></span><br>
+    HP Regen: <span id="hpregen-1"><%= @champion_1.hpregen %></span><br>
+    HP Regen/lvl: <span id="hpregenlvl-1"><%= @champion_1.hpregenperlevel %></span><br>
+    Movespeed: <span id="ms-1"><%= @champion_1.movespeed %></span><br>
+    MP: <span id="mp-1"><%= @champion_1.mp %></span><br>
+    MP/lvl: <span id="mplvl-1"><%= @champion_1.mpperlevel %></span><br>
+    MP Regen: <span id="mpregen-1"><%= @champion_1.mpregen %></span><br>
+    MP Regen/lvl: <span id="mpregenlvl-1"><%= @champion_1.mpregenperlevel %></span><br>
+    Spellblock: <span id="sb-1"><%= @champion_1.spellblock %></span><br>
+    Spellblock/lvl: <span id="sblvl-1"><%= @champion_1.spellblockperlevel %></span><br>
+  </div>
+  <div class="champion_2 large-5 columns">
+    Armor: <span id="armor-2"><%= @champion_2.armor %></span><br>
+    Armor Pen/lvl: <span id="armor-pen-2"><%= @champion_2.armorperlevel %></span><br>
+    AD: <span id="ad-2"><%= @champion_2.attackdamage %></span><br>
+    AD/lvl: <span id="adlvl-2"><%= @champion_2.attackdamageperlevel %></span><br>
+    Attack Range: <span id="ar-2"><%= @champion_2.attackrange %></span><br>
+    Attackspeedperlevel: <span id="aslvl-2"><%= @champion_2.attackspeedperlevel %></span><br>
+    HP: <span id="hp-2"><%= @champion_2.hp %></span><br>
+    HP/lvl: <span id="hplvl-2"><%= @champion_2.hpperlevel %></span><br>
+    HP Regen: <span id="hpregen-2"><%= @champion_2.hpregen %></span><br>
+    HP Regen/lvl: <span id="hpregenlvl-2"><%= @champion_2.hpregenperlevel %></span><br>
+    Movespeed: <span id="ms-2"><%= @champion_2.movespeed %></span><br>
+    MP: <span id="mp-2"><%= @champion_2.mp %></span><br>
+    MP/lvl: <span id="mplvl-2"><%= @champion_2.mpperlevel %></span><br>
+    MP Regen: <span id="mpregen-2"><%= @champion_2.mpregen %></span><br>
+    MP Regen/lvl: <span id="mpregenlvl-2"><%= @champion_2.mpregenperlevel %></span><br>
+    Spellblock: <span id="sb-2"><%= @champion_2.spellblock %></span><br>
+    Spellblock/lvl: <span id="sblvl-2"><%= @champion_2.spellblockperlevel %></span><br>
+  </div>
 </div>
 
-<div class="champion_2">
-  <p>Armor: <%= @champion_2.armor %></p>
-  <p>Armor Pen/lvl: <%= @champion_2.armorperlevel %></p>
-  <p>AD: <%= @champion_2.attackdamage %></p>
-  <p>AD/lvl: <%= @champion_2.attackdamageperlevel %></p>
-  <p>Attack Range: <%= @champion_2.attackrange %></p>
-  <p>Attackspeedoffset: <%= @champion_2.attackspeedoffset %></p>
-  <p>Attackspeedperlevel: <%= @champion_2.attackspeedperlevel %></p>
-  <p>Crit: <%= @champion_2.crit %></p>
-  <p>Crit/lvl: <%= @champion_2.critperlevel %></p>
-  <p>HP: <%= @champion_2.hp %></p>
-  <p>HP/lvl: <%= @champion_2.hpperlevel %></p>
-  <p>HP Regen: <%= @champion_2.hpregen %></p>
-  <p>HP Regen/lvl: <%= @champion_2.hpregenperlevel %></p>
-  <p>Movespeed: <%= @champion_2.movespeed %></p>
-  <p>MP: <%= @champion_2.mp %></p>
-  <p>MP/lvl: <%= @champion_2.mpperlevel %></p>
-  <p>MP Regen: <%= @champion_2.mpregen %></p>
-  <p>MP Regen/lvl: <%= @champion_2.mpregenperlevel %></p>
-  <p>Spellblock: <%= @champion_2.spellblock %></p>
-  <p>Spellblock/lvl: <%= @champion_2.spellblockperlevel %></p>
-</div>
 
 

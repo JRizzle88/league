@@ -4,18 +4,26 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title><%= content_for?(:title) ? yield(:title) : "foundation-rails" %></title>
+    <title><%= content_for?(:title) ? yield(:title) : "League" %></title>
 
     <%= stylesheet_link_tag    "application" %>
     <%= javascript_include_tag "vendor/modernizr" %>
     <link rel="stylesheet" type="text/css" href="http://cdn.foundation5.zurb.com/foundation.css">
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.0.1/js/foundation.min.js"></script>
+    <!--<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.0.1/js/foundation.min.js"></script>-->
     <%= csrf_meta_tags %>
   </head>
 
   <body>
+    <header id="main-header">
+      <%= render 'layouts/partials/header' %>
+    </header>
 
-    <%= yield %>
-    <%= javascript_include_tag "application" %>
+    <main id="main-content">
+      <%= yield %>
+    </main>
+
+    <footer id="footer-scripts">
+      <%= javascript_include_tag "application" %>
+    </div>
   </body>
 </html>

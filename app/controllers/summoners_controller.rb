@@ -3,7 +3,15 @@ class SummonersController < ApplicationController
 
   def home
     @new_summoner= Summoner.new
+
     summoner_name = cookies[:summoner]
+    # currently the cookies[:summoner] is only being stored in the create method so for a first time person like myself would have an empty cookie
+    # if summoner_name isnt defined then we should give it a default value
+    # maybe we can replace this with a random string pulled from an array of summoners
+    if !summoner_name
+      summoner_name = 'Jinx'
+    end
+
     @summoner = Summoner.find_by(:name => summoner_name)
     @champions = Champion.all.order(:name)
   end

@@ -1,25 +1,46 @@
-Summoner Name: <%= @summoner.name %><br>
-Summoner Level: <%= @summoner.level %><br>
+<% content_for :title, "Choose 2 Champs | League" %>
 
-<%= form_for @new_summoner do |f| %>
-  <%= f.label :name %>:
-  <%= f.text_field :name %><br />
-  <%= f.submit %>
-<% end %>
+<div class="row full-width">
+  <div class="large-2 columns">
+    <img src="http://ddragon.leagueoflegends.com/cdn/5.12.1/img/profileicon/<%= @summoner.icon %>.png" style="width:200px;height:200px;">
+    <h3>Summoner Name: <%= @summoner.name %></h3>
+    <h4>Summoner Level: <%= @summoner.level %></h4>
+  </div>
+  <div class="large-2 columns">
+    <%= form_for @new_summoner do |f| %>
+      <%= f.label :name %>
+      <%= f.text_field :name %><br />
+      <%= f.submit :class => 'success button' %>
+    <% end %>
+  </div>
+  <div class="large-4 columns">
 
-<img src="http://ddragon.leagueoflegends.com/cdn/5.12.1/img/profileicon/<%= @summoner.icon %>.png" style="width:200px;height:200px;">
-
-<br><br>
-
-<div class="champions">
-  <% @champions.each do |champion| %>
-    <img id="<%= champion.id %>" src="http://ddragon.leagueoflegends.com/cdn/5.22.3/img/champion/<%= champion.name %>.png">
-  <% end %>
+  </div>
+  <div class="large-4 columns">
+    <h4>The Chosen</h4>
+    <form action="champions/compare" method="post">
+      <span id="champ1-info"></span>
+      <input id="champ1" name="champ1" type="hidden">
+      <span id="champ2-info"></span>
+      <input id="champ2" name="champ2" type="hidden">
+      <input type="submit" value="Compare" class="success button">
+    </form>
+  </div>
 </div>
 
+<div class="row full-width">
+  <div class="champions">
+    <% @champions.each do |champion| %>
+    <div class="champion">
+      <img id="<%= champion.id %>" src="http://ddragon.leagueoflegends.com/cdn/5.22.3/img/champion/<%= champion.name %>.png" onError="this.onerror=null;this.src='//placehold.it/120x120';" >
+      <span class="caption simple-caption">
+        <p><%= champion.name %></p>
+      </span>
+    </div>
+    <% end %>
+  </div>
+</div>
 
-<form action="champions/compare" method="post">
-  <input id="champ1" name="champ1" hidden>
-  <input id="champ2" name="champ2" hidden>
-  <input type="submit" value="Submit">
-</form>
+<div class="row">
+
+</div>
